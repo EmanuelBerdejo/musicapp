@@ -7,6 +7,9 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+  slideOpt = {
+    initialSlide: 0
+  }
   constructor() {}
 
 }
