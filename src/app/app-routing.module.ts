@@ -18,17 +18,22 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'register',
-    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
-  },
-  {
     path: 'menu',
     loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule), canActivate: [IntroGuard, LoginGuard]
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
   {
     path: 'songs-modal',
     loadChildren: () => import('./songs-modal/songs-modal.module').then( m => m.SongsModalPageModule)
   },
+  {
+    path: 'songslocal-modal',
+    loadChildren: () => import('./songslocal-modal/songslocal-modal.module').then( m => m.SongslocalModalPageModule)
+  }
+  
 ];
 
 @NgModule({

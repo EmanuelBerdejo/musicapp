@@ -2,6 +2,13 @@
     font-size: 25px;
     color: #100c14;
   }
+  
+
+  .my-favorite-font {
+    font: var(--my-favorite-font);
+    color: var(--my-favorite-font-color);
+    font-size: var(--my-favorite-font-size)
+  }
   .my-favorite-text-color {
     color: var(--my-favorite-color);
   }

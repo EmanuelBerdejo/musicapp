@@ -90,10 +90,12 @@ export class RegisterPage implements OnInit {
   }
 
   registerUser(userData:any){
-    console.log(userData)
-    this.authService.registerUser(userData).then(() => {
-      this.navCtrl.navigateBack("/login")
+    console.log(userData);
+    this.authService.registerUser(userData).subscribe(res => {
+      console.log(res)
+      this.navCtrl.navigateBack("/login");
     })
   }
-}
+  }
+
 

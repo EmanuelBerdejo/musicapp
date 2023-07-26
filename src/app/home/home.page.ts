@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MusicService } from '../services/music.service';
 import { ModalController } from '@ionic/angular';
 import { SongsModalPage } from '../songs-modal/songs-modal.page';
+import { SongslocalModalPage } from '../songslocal-modal/songslocal-modal.page';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -10,7 +11,7 @@ import { SongsModalPage } from '../songs-modal/songs-modal.page';
 export class HomePage {
   
   artists: any;
-  localArtists: any;
+  local_Artists: any;
   song ={
     name: '',
     playing: false,
@@ -30,8 +31,10 @@ export class HomePage {
       this.artists = listArtists;
       console.log(this.artists);
     })
-    this.localArtists = this.musicService.getArtistsFromJson();
-    console.log(this.localArtists.artists);
+    this.local_Artists = this.musicService.getArtistsFromJson();
+    this.local_Artists = this.local_Artists.artists;
+    console.log(this.local_Artists.artists);
+
     this.musicService.getAlbums().then(listAlbums => {
       this.albums = listAlbums;
     })
@@ -55,6 +58,25 @@ export class HomePage {
         this.song = dataReturned.data
       }
     );
+    return await modal.present();
+  }
+
+  async showLocSongs(artist:any){
+    console.log(artist)
+    const songs = await this.musicService.getArtistsTracks(artist.id)
+    console.log(songs);
+    const modal = await this.modalController.create(
+      {
+        component: SongslocalModalPage,
+        componentProps: {
+          songs: songs,
+          name: artist.name
+        } 
+      }
+    );
+    modal.onDidDismiss().then( dataReturned => {
+      this.song = dataReturned.data;
+    })
     return await modal.present();
   }
 

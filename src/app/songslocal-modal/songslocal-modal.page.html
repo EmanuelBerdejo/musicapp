@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{name}}</ion-title>
+    <ion-buttons>
+      <ion-button (click)="close()">
+        <ion-icon name="close" class="close-icon" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="none">
+    <ion-item *ngFor="let song of songs; index as s" (click)="selectSong(song)">
+      <ion-avatar>
+        {{ s + 1 }}
+      </ion-avatar>
+      <label>
+        <h2>{{song.name}}</h2>
+      </label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+

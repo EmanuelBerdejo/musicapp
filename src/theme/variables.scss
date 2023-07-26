@@ -6,6 +6,15 @@
 
   --my-favorite-color: #eaec47;
   --my-favorite-font-size: 35px;
+
+  --my-favorite-font: arial;
+  --my-favorite-font-color: red;
+  
+  ion-header {
+    --header-background-color: #f0f0f0; 
+    --header-text-color: #333;
+  }
+
   
   /** primary **/
   --ion-color-primary: #3880ff;

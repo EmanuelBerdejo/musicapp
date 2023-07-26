@@ -9,10 +9,10 @@
   [speed]="400"
   >
     <swiper-slide *ngFor="let slide of slides">
-      <h1 class="my-favorite-text-color">{{slide.title}}</h1>
+      <h1 class="my-favorite-text-color" >{{slide.title}}</h1>
       <img src={{slide.img}} />
       <ion-icon class="slide-icon" name="{{slide.icon}}"></ion-icon>
-      <p>{{slide.description}}</p>
+      <p class="my-favorite-font">{{slide.description}}</p>
     </swiper-slide>
 
   </swiper-container>

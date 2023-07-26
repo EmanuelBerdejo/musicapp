@@ -21,6 +21,20 @@
     </swiper-slide>
   </swiper-container>
 
+  <h1>Artistas Locales</h1>
+  <swiper-container 
+  [initialSlide]="0"
+  [slidesPerView]="3"
+  *ngIf="local_Artists?.length > 0"
+  >
+    <swiper-slide *ngFor="let localArt of local_Artists">
+      <ion-avatar (click)=" showLocSongs(localArt)">
+        <img src="{{localArt['images'][2]['url']}}" />
+        <span>{{localArt.name}}</span>
+      </ion-avatar>
+    </swiper-slide>
+  </swiper-container>
+
   <h1>Albumes</h1>
   <swiper-container 
   [initialSlide]="0"
